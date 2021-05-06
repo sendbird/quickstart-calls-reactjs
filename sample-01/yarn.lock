@@ -10060,10 +10060,10 @@ send@0.17.1:
     range-parser "~1.2.1"
     statuses "~1.5.0"
 
-sendbird-calls@1.6.0-beta:
-  version "1.6.0-beta"
-  resolved "https://registry.yarnpkg.com/sendbird-calls/-/sendbird-calls-1.6.0-beta.tgz#c3c39a090a42f6a04a66ff74ba525fa9b194192f"
-  integrity sha512-zSQz+8OyZqJmc/1GJyB0JhK2r9P2Yu6sYwS2nXQjMWUFbum5mJZs7RboX8lVdXPVrFE0ESmUcOM5VZm0xgSKwA==
+sendbird-calls@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/sendbird-calls/-/sendbird-calls-1.6.0.tgz#45d968a618df7bbfa50270597b2ef905ca54bd98"
+  integrity sha512-WmglEUp2GUFNTGskWTlkK6gz/z5VDV7RIxchoc0u91cs0TwN782qtXbIABSGQmaJZCSbRPBvsQFvkS5rjvowwQ==
 
 serialize-javascript@^4.0.0:
   version "4.0.0"
@@ -11427,10 +11427,8 @@ watchpack@^1.7.4:
   resolved "https://registry.yarnpkg.com/watchpack/-/watchpack-1.7.5.tgz#1267e6c55e0b9b5be44c2023aed5437a2c26c453"
   integrity sha512-9P3MWk6SrKjHsGkLT2KHXdQ/9SNkyoJbabxnKOoJepsvJjJG8uYTR3yTPxPQvNDI3w4Nz1xnE0TLHK4RIVe/MQ==
   dependencies:
-    chokidar "^3.4.1"
     graceful-fs "^4.1.2"
     neo-async "^2.5.0"
-    watchpack-chokidar2 "^2.0.1"
   optionalDependencies:
     chokidar "^3.4.1"
     watchpack-chokidar2 "^2.0.1"
