@@ -1,0 +1,40 @@
+.Toastify__toast-container {
+    /*width: 440px;*/
+}
+
+.Toastify__toast {
+    width: 440px;
+    min-height: 48px;
+    padding-left: 16px;
+    padding-right: 16px;
+    align-content: center;
+}
+
+.Toastify__toast--error {
+    background: #f24d6b;
+}
+
+.Toastify__toast--success {
+    background: var(--neutral-navy-800);
+}
+
+.Toastify__toast--success:last-child {
+    margin-bottom: 100px;
+}
+
+.Toastify__close-button {
+    margin-top: auto;
+    margin-bottom: auto;
+
+    width: 20px;
+    height: 20px;
+}
+
+.Toastify__close-button svg {
+    width: 20px;
+    height: 20px;
+}
+
+.ReactModal__Overlay {
+    z-index: 100;
+}
