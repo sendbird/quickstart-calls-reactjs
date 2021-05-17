@@ -5,7 +5,11 @@
 
 ## Introduction
 
-Sendbird Calls SDK for JavaScript is used to initialize, configure, and build voice and video calling functionality into your JavaScript client app. In this repository, you will find the steps you need to take before implementing the Calls SDK into a project, and a sample app which contains the code for implementing voice and video call. 
+Sendbird Calls SDK for JavaScript is used to initialize, configure, and build voice and video calling functionality into your JavaScript client app. In this repository, you will find the steps you need to take before implementing the Calls SDK into a project, and a sample app which contains the code for implementing voice and video call.
+
+This quickstart is built with [React](https://reactjs.org/). This repository contains the two types of quickstarts; Direct Call and Group Call.
+In Direct Call quickstart, you can perform a 1-on-1 call by dialing to a specific user.
+In Group Call quickstart, you can perform a multi-user call by creating and entering a room.
 
 ### More about Sendbird Calls for Javascript
 
