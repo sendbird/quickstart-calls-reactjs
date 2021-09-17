@@ -72,6 +72,7 @@ const LoginForm = (props: LoginFormProps) => {
   const USER_ID = authArgs.user_id || stored?.userId || process.env.REACT_APP_USER_ID || '';
   const ACCESS_TOKEN = authArgs.access_token || stored?.accessToken || process.env.REACT_APP_ACCESS_TOKEN || '';
   const IS_ACCESS_TOKEN_NEEDED = process.env.REACT_APP_IS_ACCESS_TOKEN_NEEDED === 'true';
+  const ROOM_ID = authArgs.room_id || '';
 
   const [appId, appIdInput] = useTextInput({ id: 'appIdInput', initValue: APP_ID });
   const [userId, userIdInput] = useTextInput({ id: 'userIdInput', initValue: USER_ID });
@@ -88,7 +89,7 @@ const LoginForm = (props: LoginFormProps) => {
     return sbCalls.auth(option)
       .then(user => {
         storage.setItem('sbCalls', { appId, userId });
-        history.push( `${query.get('referrer') ?? '/'}`);
+        history.push( `${query.get('referrer') ? query.get('referrer') + `?room_id=${ROOM_ID}` : '/'}`);
       })
       .catch(error => {
         toast.error(<ErrorMessage message={`Check entered information and try again.`} />, { autoClose: 2000 });

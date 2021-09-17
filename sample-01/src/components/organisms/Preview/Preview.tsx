@@ -90,7 +90,7 @@ const Preview = (props: ReactModal.Props & { close: () => void; room: StatefulRo
       content={(
         <React.Fragment>
           <VideoBox height={videoHeight}>
-            <video ref={videoRef} autoPlay muted={!audioEnabled} />
+            <video ref={videoRef} autoPlay playsInline muted={!audioEnabled} />
             {videoEnabled ||
               <ParticipantOverlay>
                 <Avatar url={sbCalls.user?.profileUrl} />

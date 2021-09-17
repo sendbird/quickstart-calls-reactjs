@@ -8,11 +8,12 @@ import Preview from 'components/organisms/Preview';
 import Header from 'components/organisms/Header';
 import RoomCreated from 'components/organisms/RoomCreated';
 import { useSbCalls } from 'lib/sendbird-calls';
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import styled from 'styled-components';
 import { FullScreen, FullScreenContent } from 'components/templates/Screen';
 import * as fonts from 'styles/fonts';
 import { toast } from 'react-toastify';
+import { useLocation } from "react-use";
 
 const Wrapper = styled(FullScreen)`
 `;
@@ -101,6 +102,8 @@ const FormInput = styled.div`
 
 const GroupCallMain = () => {
   const sbCalls  = useSbCalls();
+  const query = new URLSearchParams(useLocation().search);
+  const roomIdQuery = query.get('room_id');
   const { rooms } = sbCalls;
   const [roomId, roomIdInput, setRoomId] = useTextInput({ id: 'roomIdInput', initValue: '', placeholder: 'Room ID' });
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -110,14 +113,30 @@ const GroupCallMain = () => {
     const room = rooms[rooms.length - 1];
   }, [rooms]);
 
+  useEffect(() => {
+    if (roomIdQuery) {
+      enter(roomIdQuery, true);
+    }
+  }, [])
+
   const onCall = useMemo(() => {
     return rooms.find(r => !!r.localParticipant);
   }, [rooms]);
 
-  const enter = useCallback(async (roomId: string) => {
+  const enter = useCallback(async (roomId: string, skipDialog: boolean) => {
     try {
-      await sbCalls.fetchRoomById(roomId);
-      setIsModalOpen(true);
+      const room = await sbCalls.fetchRoomById(roomId);
+
+      if (skipDialog) {
+        room.enter({
+          audioEnabled: true,
+          videoEnabled: true,
+        }).catch(error => {
+          toast.error(<ErrorMessage message={error.message} />, { autoClose: 2000 });
+        })
+      } else {
+        setIsModalOpen(true);
+      }
     } catch (e) {
       console.error(e);
       toast.error(<ErrorMessage message={e.message || `Check room ID and try again.`} />, { autoClose: 2000 });
@@ -164,7 +183,7 @@ const GroupCallMain = () => {
             <FormBoxDescription>Enter an existing room to participate in a group call.</FormBoxDescription>
             <FormInput>
               {roomIdInput}
-              <TextButton onClick={() => { enter(roomId) }} disabled={!roomId}>Enter</TextButton>
+              <TextButton onClick={() => { enter(roomId, false) }} disabled={!roomId}>Enter</TextButton>
             </FormInput>
           </FormBox>
         </Boxes>
