@@ -133,7 +133,7 @@ const MediaContent = ({ room }: Props) => {
     return (
       <Wrapper>
         <ParticipantView key={p.participantId} rows={1} width={windowDimensions.width} height={windowDimensions.height}>
-          <video autoPlay muted={p.participantId === localParticipant.participantId} ref={el => {
+          <video autoPlay playsInline muted={p.participantId === localParticipant.participantId} ref={el => {
             if (!el) return;
             p.setMediaView(el);
           }} />
@@ -162,7 +162,7 @@ const MediaContent = ({ room }: Props) => {
             {[p1, p2].map(p => (
               p && (
                 <ParticipantView rows={rows} width={windowDimensions.width} height={windowDimensions.height} key={p.participantId}>
-                  <video autoPlay muted={p.participantId === localParticipant.participantId} ref={el => {
+                  <video autoPlay playsInline muted={p.participantId === localParticipant.participantId} ref={el => {
                     if (!el) return;
                     p.setMediaView(el);
                   }} />

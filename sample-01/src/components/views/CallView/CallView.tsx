@@ -224,6 +224,7 @@ const CallView: React.FC<CallViewProps> = ({ call }) => {
                 <VideoViewDiv size={remoteMediaViewSize}>
                   <VideoView
                     ref={remoteMediaViewRef}
+                    playsInline
                     autoPlay
                     muted={false}
                     controls={isSafari()}
@@ -232,6 +233,7 @@ const CallView: React.FC<CallViewProps> = ({ call }) => {
                 <VideoViewDiv size={localMediaViewSize}>
                   <VideoView
                     ref={localMediaViewRef}
+                    playsInline
                     autoPlay
                     muted
                     style={{ backgroundColor: 'var(--white)' }}
@@ -243,11 +245,13 @@ const CallView: React.FC<CallViewProps> = ({ call }) => {
               <>
                 <audio
                   ref={localMediaViewRef}
+                  playsInline
                   autoPlay
                   muted
                 />
                 <audio
                   ref={remoteMediaViewRef}
+                  playsInline
                   autoPlay
                   muted={false}
                   controls={isSafari()}
