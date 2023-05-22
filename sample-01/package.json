@@ -16,7 +16,7 @@
     "react-helmet": "^6.1.0",
     "react-modal": "^3.12.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.3",
+    "react-scripts": "5.0.0",
     "react-toastify": "^7.0.3",
     "react-use": "^17.2.1",
     "sendbird-calls": "^1.9.3",
