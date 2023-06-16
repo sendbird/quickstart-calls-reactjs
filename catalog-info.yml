@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: quickstart-calls-reactjs
+  description: Public sample repository for Sendbird calls JavaScript
+  annotations:
+    github.com/project-slug: sendbird/quickstart-calls-reactjs
+spec:
+  type: sample
+  lifecycle: production
+  owner: dep-client-platform
+  system: sendbird-calls
